@@ -19,18 +19,18 @@ class Piece:
 
 
 #  K = king, Q = queen, R = rook, B = bishop, P = pawn, N = knight
-black_K = Piece('black', 'K', './Assets/king-black.png')
-white_K = Piece('white', 'K', './Assets/king-white.png')
-black_Q = Piece('black', 'Q', './Assets/queen-black.png')
-white_Q = Piece('white', 'Q', './Assets/queen-white.png')
-black_R = Piece('black', 'R', './Assets/rook-black.png')
-white_R = Piece('white', 'R', './Assets/rook-white.png')
-black_B = Piece('black', 'B', './Assets/bishop-black.png')
-white_B = Piece('white', 'B', './Assets/bishop-white.png')
-black_P = Piece('black', 'P', './Assets/pawn-black.png')
-white_P = Piece('white', 'P', './Assets/pawn-white.png')
-black_N = Piece('black', 'N', './Assets/knight-black.png')
-white_N = Piece('white', 'N', './Assets/knight-white.png')
+black_K = Piece('black', 'K', './assets/king-black.png')
+white_K = Piece('white', 'K', './assets/king-white.png')
+black_Q = Piece('black', 'Q', './assets/queen-black.png')
+white_Q = Piece('white', 'Q', './assets/queen-white.png')
+black_R = Piece('black', 'R', './assets/rook-black.png')
+white_R = Piece('white', 'R', './assets/rook-white.png')
+black_B = Piece('black', 'B', './assets/bishop-black.png')
+white_B = Piece('white', 'B', './assets/bishop-white.png')
+black_P = Piece('black', 'P', './assets/pawn-black.png')
+white_P = Piece('white', 'P', './assets/pawn-white.png')
+black_N = Piece('black', 'N', './assets/knight-black.png')
+white_N = Piece('white', 'N', './assets/knight-white.png')
 
 
 PIECES_ORDER = {
@@ -63,30 +63,30 @@ PIECES_ORDER = {
 
 def create_board(board):
     board[0] = [
-        Piece('black', 'R', './Assets/rook-black.png'), Piece('black',
-                                                              'N', './Assets/knight-black.png'),
-        Piece('black', 'B', './Assets/bishop-black.png'), Piece('black',
-                                                                'Q', './Assets/queen-black.png'),
-        Piece('black', 'K', './Assets/king-black.png'), Piece('black',
-                                                              'B', './Assets/bishop-black.png'),
-        Piece('black', 'N', './Assets/knight-black.png'), Piece('black',
-                                                                'R', './Assets/rook-black.png')
+        Piece('black', 'R', './assets/rook-black.png'), Piece('black',
+                                                              'N', './assets/knight-black.png'),
+        Piece('black', 'B', './assets/bishop-black.png'), Piece('black',
+                                                                'Q', './assets/queen-black.png'),
+        Piece('black', 'K', './assets/king-black.png'), Piece('black',
+                                                              'B', './assets/bishop-black.png'),
+        Piece('black', 'N', './assets/knight-black.png'), Piece('black',
+                                                                'R', './assets/rook-black.png')
     ]
 
     board[7] = [
-        Piece('white', 'R', './Assets/rook-white.png'), Piece('white',
-                                                              'N', './Assets/knight-white.png'),
-        Piece('white', 'B', './Assets/bishop-white.png'), Piece('white',
-                                                                'Q', './Assets/queen-white.png'),
-        Piece('white', 'K', './Assets/king-white.png'), Piece('white',
-                                                              'B', './Assets/bishop-white.png'),
-        Piece('white', 'N', './Assets/knight-white.png'), Piece('white',
-                                                                'R', './Assets/rook-white.png')
+        Piece('white', 'R', './assets/rook-white.png'), Piece('white',
+                                                              'N', './assets/knight-white.png'),
+        Piece('white', 'B', './assets/bishop-white.png'), Piece('white',
+                                                                'Q', './assets/queen-white.png'),
+        Piece('white', 'K', './assets/king-white.png'), Piece('white',
+                                                              'B', './assets/bishop-white.png'),
+        Piece('white', 'N', './assets/knight-white.png'), Piece('white',
+                                                                'R', './assets/rook-white.png')
     ]
 
     for i in range(8):
-        board[1][i] = Piece('black', 'P', './Assets/pawn-black.png')
-        board[6][i] = Piece('white', 'P', './Assets/pawn-white.png')
+        board[1][i] = Piece('black', 'P', './assets/pawn-black.png')
+        board[6][i] = Piece('white', 'P', './assets/pawn-white.png')
 
     return board
 
