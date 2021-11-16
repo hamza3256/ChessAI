@@ -1,5 +1,4 @@
 import pygame
-import time
 import sys
 
 pygame.display.set_caption("ChessAI")
