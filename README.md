@@ -1,4 +1,4 @@
-Resources used
+Resources
 ==============
 
 [AlphaGo Zero: Starting from scratch](https://deepmind.com/blog/article/alphago-zero-starting-scratch)
