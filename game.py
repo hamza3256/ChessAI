@@ -3,8 +3,8 @@ import pygame
 pygame.display.set_caption("ChessAI")
 WIDTH, HEIGHT = 1000, 1000
 BOARD_DISPLAY = pygame.display.set_mode((WIDTH, HEIGHT))
-WHITE, BLACK, YELLOW, BLUE, GREY, LIGHT_GREY = (
-    255, 255, 255), (0, 0, 0), (204, 204, 0), (50, 255, 255), (128, 128, 128), (64, 64, 64)
+WHITE, BLACK, YELLOW, BLUE, GREY, LIGHT, DARK, HIGHLIGHT = (
+    255, 255, 255), (0, 0, 0), (204, 204, 0), (50, 255, 255), (128, 128, 128), (238, 238, 210), (118, 150, 86), (186, 202, 68)
 
 ASSETS_FOLDER = './assets1/'
 
@@ -15,44 +15,53 @@ def create_board():
     grid_size = WIDTH // 8
     pygame.font.init()
     my_font = pygame.font.SysFont('merida', 30)
+
+    colours = [LIGHT, DARK]
+    for i in range(WIDTH):
+        for j in range(WIDTH):
+            colour = colours[((i+j) % 2)]
+            grid = pygame.Rect(i*grid_size, j*grid_size, grid_size, grid_size)
+            pygame.draw.rect(BOARD_DISPLAY, colour, grid)
+    """
     for i in range(8):
         for j in range(8):
             if i % 2 == 0:
                 if j % 2 == 0:
                     grid = pygame.Rect(
                         i*grid_size, j*grid_size, grid_size, grid_size)
-                    pygame.draw.rect(BOARD_DISPLAY, WHITE, grid)
+                    pygame.draw.rect(BOARD_DISPLAY, LIGHT, grid)
                 else:
                     grid = pygame.Rect(
                         i*grid_size, j*grid_size, grid_size, grid_size)
-                    pygame.draw.rect(BOARD_DISPLAY, BLACK, grid)
+                    pygame.draw.rect(BOARD_DISPLAY, DARK, grid)
             else:
                 if j % 2 == 0:
                     grid = pygame.Rect(
                         i*grid_size, j*grid_size, grid_size, grid_size)
-                    pygame.draw.rect(BOARD_DISPLAY, BLACK, grid)
+                    pygame.draw.rect(BOARD_DISPLAY, DARK, grid)
                 else:
                     grid = pygame.Rect(
                         i*grid_size, j*grid_size, grid_size, grid_size)
-                    pygame.draw.rect(BOARD_DISPLAY, WHITE, grid)
+                    pygame.draw.rect(BOARD_DISPLAY, LIGHT, grid)
             if j == 0:
                 if i % 2 == 0:
-                    notation = my_font.render(str(8-i), False, BLACK)
+                    notation = my_font.render(str(8-i), False, DARK)
                     BOARD_DISPLAY.blit(
                         notation, (j*grid_size+5, i*grid_size+5))
                 else:
-                    notation = my_font.render(str(8-i), False, WHITE)
+                    notation = my_font.render(str(8-i), False, LIGHT)
                     BOARD_DISPLAY.blit(
                         notation, (j*grid_size+5, i*grid_size+5))
             if i == 7:
                 if j % 2 == 0:
-                    notation = my_font.render(chr(97+j), False, WHITE)
+                    notation = my_font.render(chr(97+j), False, LIGHT)
                     BOARD_DISPLAY.blit(
                         notation, (j*grid_size+110, i*grid_size+105))
                 else:
-                    notation = my_font.render(chr(97+j), False, BLACK)
+                    notation = my_font.render(chr(97+j), False, DARK)
                     BOARD_DISPLAY.blit(
                         notation, (j*grid_size+110, i*grid_size+105))
+    """
 
 
 class Piece:
@@ -76,6 +85,17 @@ b_pawn = Piece('black', 'P', ASSETS_FOLDER + 'b_pawn.png')
 w_pawn = Piece('white', 'P', ASSETS_FOLDER + 'w_pawn.png')
 b_knight = Piece('black', 'N', ASSETS_FOLDER + 'b_knight.png')
 w_knight = Piece('white', 'N', ASSETS_FOLDER + 'w_knight.png')
+
+""" Forsyth-Edwards Notation (FEN) describes a Chess Position. It is an one-line ASCII-string.
+
+<FEN> ::=  <Piece Placement>
+       ' ' <Side to move>
+       ' ' <Castling ability>
+       ' ' <En passant target square>
+       ' ' <Halfmove clock>
+       ' ' <Fullmove counter>
+"""
+start_FEN = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1'
 
 PIECES_ORDER = {
     (0, 0): pygame.image.load(b_rook.image), (1, 0): pygame.image.load(b_knight.image),
