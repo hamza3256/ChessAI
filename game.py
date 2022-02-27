@@ -73,17 +73,17 @@ class Piece:
 
 
 #  K = king, Q = queen, R = rook, B = bishop, P = pawn, N = knight
-b_king = Piece('black', 'K', ASSETS_FOLDER + 'b_king.png')
+b_king = Piece('black', 'k', ASSETS_FOLDER + 'b_king.png')
 w_king = Piece('white', 'K', ASSETS_FOLDER + 'w_king.png')
-b_queen = Piece('black', 'Q', ASSETS_FOLDER + 'b_queen.png')
+b_queen = Piece('black', 'q', ASSETS_FOLDER + 'b_queen.png')
 w_queen = Piece('white', 'Q', ASSETS_FOLDER + 'w_queen.png')
-b_rook = Piece('black', 'R', ASSETS_FOLDER + 'b_rook.png')
+b_rook = Piece('black', 'r', ASSETS_FOLDER + 'b_rook.png')
 w_rook = Piece('white', 'R', ASSETS_FOLDER + 'w_rook.png')
-b_bishop = Piece('black', 'B', ASSETS_FOLDER + 'b_bishop.png')
+b_bishop = Piece('black', 'b', ASSETS_FOLDER + 'b_bishop.png')
 w_bishop = Piece('white', 'B', ASSETS_FOLDER + 'w_bishop.png')
-b_pawn = Piece('black', 'P', ASSETS_FOLDER + 'b_pawn.png')
+b_pawn = Piece('black', 'p', ASSETS_FOLDER + 'b_pawn.png')
 w_pawn = Piece('white', 'P', ASSETS_FOLDER + 'w_pawn.png')
-b_knight = Piece('black', 'N', ASSETS_FOLDER + 'b_knight.png')
+b_knight = Piece('black', 'n', ASSETS_FOLDER + 'b_knight.png')
 w_knight = Piece('white', 'N', ASSETS_FOLDER + 'w_knight.png')
 
 """ Forsyth-Edwards Notation (FEN) describes a Chess Position. It is an one-line ASCII-string.
@@ -127,6 +127,8 @@ PIECES_ORDER = {
 
 def populate_board():
     grid_size = WIDTH // 8
+    for i in start_FEN:
+
     for i in range(2):
         for j in range(8):
             chess_piece_resized = pygame.transform.scale(
