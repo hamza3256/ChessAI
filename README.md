@@ -1,16 +1,28 @@
-Resources used
-==============
+# Python-Chess 
+This is a chess project I started to learn Python and introduce myself to git
 
-[AlphaGo Zero: Starting from scratch](https://deepmind.com/blog/article/alphago-zero-starting-scratch)
+## Current Features
+* Fully working chess game written from scratch
+* CPU opponent built using alpha-beta pruning and the minimax algorithm
+* Multithreading
+* Special chess rules including en passant, castling, and pawn upgrade
+* Launch menu to choose your game mode
+* Local player versus player (on the same device)
+* Random cpu opponent
 
-[Monte-Carlo Tree Search: A New Framework for Game AI](https://www.aaai.org/Papers/AIIDE/2008/AIIDE08-036.pdf)
+## Installation
+1. Install Python 3
+1. Use pip to install tkinter, PIL, anytree, and threading
+1. Run main.py to start the program
 
-[Mastering the game of Go with deep
-neural networks and tree search](https://storage.googleapis.com/deepmind-media/alphago/AlphaGoNaturePaper.pdf)
-
-[Mastering the game of Go without human knowledge](https://www.nature.com/articles/nature24270.epdf?author_access_token=VJXbVjaSHxFoctQQ4p2k4tRgN0jAjWel9jnR3ZoTv0PVW4gB86EEpGqTRDtpIz-2rmo8-KG06gqVobU5NSCFeHILHcVFUeMsbvwS-lxjqQGg98faovwjxeTUgZAUMnRQ)
-
-[How to build your own AlphaZero AI using Python and Keras](https://medium.com/applied-data-science/how-to-build-your-own-alphazero-ai-using-python-and-keras-7f664945c188)
-
-[Mastering Chess and Shogi by Self-Play with a
-General Reinforcement Learning Algorithm](https://arxiv.org/pdf/1712.01815.pdf)
+## TODO
+ * Write neural network game mode
+ * Add checkmate indication - checkmate rules are in place
+ * Write local network multiplayer
+ * More thoroughly document items
+ * Clean up parts - many parts are implemented inefficiently
+ * Fix unknown bugs in the game
+ * Implement smooth drag and drop graphics
+ * Make more compatible with alternate resolutions
+ * Add rule where a player can get more queens from pawn upgrade
+ * Allow the CPU opponent to perform pawn upgrades
