@@ -1,5 +1,4 @@
-# Python-Chess 
-This is a chess project I started to learn Python and introduce myself to git
+# Chess with multithreading using Alpha-Beta pruning and minimax algorithm
 
 ## Current Features
 * Fully working chess game written from scratch
