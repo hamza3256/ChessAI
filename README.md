@@ -15,7 +15,7 @@
 1. Run main.py to start the program
 
 ## TODO
- [X] Write neural network game mode
+ [x] Write neural network game mode
  [X] Add checkmate indication - checkmate rules are in place
  [X] Write local network multiplayer
  [X] More thoroughly document items
