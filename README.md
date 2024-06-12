@@ -15,13 +15,13 @@
 1. Run main.py to start the program
 
 ## TODO
- * Write neural network game mode
- * Add checkmate indication - checkmate rules are in place
- * Write local network multiplayer
- * More thoroughly document items
- * Clean up parts - many parts are implemented inefficiently
- * Fix unknown bugs in the game
- * Implement smooth drag and drop graphics
- * Make more compatible with alternate resolutions
- * Add rule where a player can get more queens from pawn upgrade
- * Allow the CPU opponent to perform pawn upgrades
+ [X] Write neural network game mode
+ [X] Add checkmate indication - checkmate rules are in place
+ [X] Write local network multiplayer
+ [X] More thoroughly document items
+ [X] Clean up parts - many parts are implemented inefficiently
+ [X] Fix unknown bugs in the game
+ [X] Implement smooth drag and drop graphics
+ [X] Make more compatible with alternate resolutions
+ [X] Add rule where a player can get more queens from pawn upgrade
+ [X] Allow the CPU opponent to perform pawn upgrades
