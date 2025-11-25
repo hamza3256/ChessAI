@@ -1,3 +1,25 @@
-.git
-__pycache__
-.vscode
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.pyc
+
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# LLM Configuration (contains API keys)
+llm_config.json
+
+# OS
+.DS_Store
+Thumbs.db

@@ -10,6 +10,17 @@ from cpu.computer import CPU
 import threading
 import time
 
+# Try to import LLM player, but don't fail if dependencies aren't installed
+try:
+    from cpu.llm_player import LLMPlayer
+    LLM_AVAILABLE = True
+except ImportError as e:
+    LLM_AVAILABLE = False
+    print(f"LLM player not available: {e}")
+except Exception as e:
+    LLM_AVAILABLE = False
+    print(f"Error loading LLM player: {e}")
+
 # Global variables for tile interaction
 numClicked = 0
 prevBG = ""
@@ -44,10 +55,32 @@ class Chess(object):
         self.tileClick(self.c.getxChoiceI(), self.c.getyChoiceI(), False)
         time.sleep(1)  # Make it easier to see where the cpu moves
         self.tileClick(self.c.getxChoiceN(), self.c.getyChoiceN(), False)
+    
+    # Method to initialize LLM opponent for separate thread
+    def startLLM(self):
+        if not LLM_AVAILABLE:
+            self.window.title("LLM Not Available - Check Dependencies")
+            return
+        try:
+            self.window.title("LLM Analyzing Position...")
+            # Initialize LLM player (will use default settings or environment variables)
+            self.llm = LLMPlayer()
+            success = self.llm.playMove(self.b.getBoard())
+            if success:
+                self.tileClick(self.llm.getxChoiceI(), self.llm.getyChoiceI(), False)
+                time.sleep(1)  # Make it easier to see where the LLM moves
+                self.tileClick(self.llm.getxChoiceN(), self.llm.getyChoiceN(), False)
+            else:
+                self.window.title("LLM Failed to Generate Move - Try Again")
+        except Exception as e:
+            self.window.title(f"LLM Error: {str(e)}")
+            print(f"LLM error: {e}")
 
     def tileClick(self, r, c, playerInitialized):
         if self.b.checkTurn() == 1 and self.gm == "CPU" and playerInitialized:
             return False  # prevents player from overriding cpu moves
+        if self.b.checkTurn() == 1 and self.gm == "LLM" and playerInitialized:
+            return False  # prevents player from overriding LLM moves
         global prevR, prevC, newR, newC, prevBG, gameOver
         print(str(r) + "," + str(c) + " has been clicked!")
         self.numClicked += 1
@@ -77,6 +110,8 @@ class Chess(object):
                 # Have to check for a win to stop program from freezing
                 if (self.gm == "CPU" and gameOver == False and self.b.checkWin() == ""):
                     threading.Thread(target=self.startCPU).start()
+                elif (self.gm == "LLM" and gameOver == False and self.b.checkWin() == ""):
+                    threading.Thread(target=self.startLLM).start()
             # Check for wins
             if (self.b.checkWin() == "Black"):
                 self.window.title("Game Over - Black Wins!")

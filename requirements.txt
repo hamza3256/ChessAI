@@ -1,0 +1,8 @@
+# Core dependencies
+anytree>=2.9.0
+Pillow>=10.0.0
+
+# LLM Integration (optional - install as needed)
+openai>=1.0.0
+anthropic>=0.18.0
+

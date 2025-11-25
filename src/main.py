@@ -13,11 +13,14 @@ cpuA = Button(window, width=15, height=10, text="CPU - Algorithm",
               bg="blue", command=lambda: startGame("CPU"))
 cpuN = Button(window, width=15, height=10, text="CPU - Neural Network",
               bg="green", command=lambda: startGame("NN"))
+cpuLLM = Button(window, width=15, height=10, text="CPU - LLM",
+              bg="purple", command=lambda: startGame("LLM"))
 opvp = Button(window, width=15, height=10, text="Online PVP",
               bg="orange", command=lambda: startGame("opvp"))
 lpvp.grid()
 cpuA.grid()
 cpuN.grid(row=1, column=1)
+cpuLLM.grid(row=2, column=0)
 opvp.grid(row=0, column=1)
 
 
