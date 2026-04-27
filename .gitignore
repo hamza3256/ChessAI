@@ -1,3 +1,14 @@
 .git
 __pycache__
+*.pyc
 .vscode
+.idea
+*.egg-info
+dist/
+build/
+.pytest_cache/
+*.prof
+*.lprof
+.DS_Store
+venv/
+.env/
