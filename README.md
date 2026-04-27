@@ -38,3 +38,5 @@ Python, NumPy, Pygame, Multiprocessing, `concurrent.futures`, Alpha-Beta Pruning
 - [X] Launch menu to choose game mode
 - [X] Local player versus player (on the same device)
 - [ ] Add PGN logging
+- [ ] Implement ratings based on Elo system
+- [ ] Simulate games against external chess engines like Stockfish
