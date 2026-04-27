@@ -37,4 +37,4 @@ Python, NumPy, Pygame, Multiprocessing, `concurrent.futures`, Alpha-Beta Pruning
 - [X] Special chess rules: en passant, castling, pawn upgrade
 - [X] Launch menu to choose game mode
 - [X] Local player versus player (on the same device)
-- [] Add PGN logging
+- [ ] Add PGN logging
